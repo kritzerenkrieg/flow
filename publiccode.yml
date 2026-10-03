@@ -5,7 +5,7 @@ landingURL: 'https://vikunja.io'
 isBasedOn: 'https://go.dev/'
 softwareVersion: 'v2.7.0'
 releaseDate: '2026-10-02'
-logo: 'https://vikunja.io/images/vikunja-logo.svg'
+logo: 'https://raw.githubusercontent.com/kritzerenkrieg/flow/main/relow-flow.png'
 platforms:
   - 'web'
   - 'linux'

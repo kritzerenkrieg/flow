@@ -1,0 +1,13 @@
+services:
+  vikunja:
+    image: vikunja/vikunja:2.7.0
+    environment:
+      VIKUNJA_SERVICE_PUBLICURL: http://localhost:3456/
+      VIKUNJA_SERVICE_SECRET: a1afb683d0cd51f6c195fcc37adedde651c5b4d378145cfc41064e31a0bd2fa6
+      VIKUNJA_DATABASE_PATH: /db/vikunja.db
+    ports:
+      - 3456:3456
+    volumes:
+      - ./files:/app/vikunja/files
+      - ./db:/db
+    restart: unless-stopped

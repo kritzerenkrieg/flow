@@ -74,7 +74,11 @@
 							:key="i"
 						/>
 					</div>
-					<Logo class="logo" />
+					<img
+						:src="logoImage"
+						alt="Vikunja"
+						class="logo"
+					>
 				</div>
 				<p>{{ $t('migrate.inProgress') }}</p>
 			</div>
@@ -149,7 +153,7 @@ export default {
 import {computed, nextTick, ref, watch} from 'vue'
 import {useI18n} from 'vue-i18n'
 
-import Logo from '@/assets/logo.svg?component'
+import logoImage from '@/assets/relow-flow.png'
 import Message from '@/components/misc/Message.vue'
 import MigrationCredentialsForm, {type PlankaCredentials} from './MigrationCredentialsForm.vue'
 

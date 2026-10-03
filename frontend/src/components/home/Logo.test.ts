@@ -2,6 +2,7 @@ import {describe, it, expect, vi, afterEach} from 'vitest'
 import {mount} from '@vue/test-utils'
 import {ref} from 'vue'
 
+import defaultLogo from '@/assets/relow-flow.png'
 import Logo from './Logo.vue'
 
 vi.mock('@/stores/auth', () => ({
@@ -22,13 +23,13 @@ afterEach(() => {
 })
 
 describe('Logo.vue', () => {
-	it('renders no img without a custom logo', () => {
+	it('renders the default logo as img without a custom logo', () => {
 		window.CUSTOM_LOGO_URL = ''
 		window.CUSTOM_LOGO_URL_DARK = ''
 
 		const wrapper = mount(Logo)
 
-		expect(wrapper.find('img').exists()).toBe(false)
+		expect(wrapper.find('img').attributes('src')).toBe(defaultLogo)
 	})
 
 	it('renders the custom logo as img', () => {

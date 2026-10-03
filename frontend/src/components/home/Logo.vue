@@ -1,31 +1,14 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useNow } from '@vueuse/core'
-import { useAuthStore } from '@/stores/auth'
-import { useConfigStore } from '@/stores/config'
 import { useColorScheme } from '@/composables/useColorScheme'
 
-import LogoFull from '@/assets/logo-full.svg?component'
-import LogoFullPride from '@/assets/logo-full-pride.svg?component'
-import {MILLISECONDS_A_HOUR} from '@/constants/date'
+import logoImage from '@/assets/relow-flow.png'
 
-const now = useNow({
-	interval: MILLISECONDS_A_HOUR,
-})
-
-const authStore = useAuthStore()
-const configStore = useConfigStore()
 const { isDark } = useColorScheme()
 
-const Logo = computed(() => configStore.allow_icon_changes
-	&& authStore.settings.frontend_settings.allow_icon_changes
-	&& now.value.getMonth() === 5
-	? LogoFullPride
-	: LogoFull)
-
 const CustomLogo = computed(() => {
-	const lightLogo = window.CUSTOM_LOGO_URL
-	const darkLogo = window.CUSTOM_LOGO_URL_DARK
+	const lightLogo = window.CUSTOM_LOGO_URL ?? ''
+	const darkLogo = window.CUSTOM_LOGO_URL_DARK ?? ''
 
 	if (!lightLogo && !darkLogo) return ''
 	if (!darkLogo) return lightLogo
@@ -33,28 +16,22 @@ const CustomLogo = computed(() => {
 
 	return isDark.value ? darkLogo : lightLogo
 })
+
+const logo = computed(() => CustomLogo.value || logoImage)
 </script>
 
 <template>
-	<div>
-		<Logo
-			v-if="!CustomLogo"
-			alt="Vikunja"
-			class="logo"
-		/>
-		<img
-			v-else
-			:src="CustomLogo"
-			alt="Vikunja"
-			class="logo"
-		>
-	</div>
+	<img
+		:src="logo"
+		alt="Vikunja"
+		class="logo"
+	>
 </template>
 
 <style lang="scss" scoped>
 .logo {
-	color: var(--logo-text-color);
 	max-inline-size: 168px;
 	max-block-size: 48px;
+	object-fit: contain;
 }
 </style>
