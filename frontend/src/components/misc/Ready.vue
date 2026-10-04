@@ -27,38 +27,29 @@
 			>
 				{{ $t('ready.rateLimited') }}
 			</Message>
-			<template v-else>
-				<p v-if="baseStore.error === ERROR_NO_API_URL">
-					{{ $t('ready.noApiUrlConfigured') }}
+			<Message
+				v-else
+				variant="danger"
+				class="mbe-4"
+			>
+				<p>
+					{{ $t('ready.errorOccured') }}<br>
+					{{ baseStore.error }}
 				</p>
-				<Message
-					v-else
-					variant="danger"
-					class="mbe-4"
-				>
-					<p>
-						{{ $t('ready.errorOccured') }}<br>
-						{{ baseStore.error }}
-					</p>
-					<p>
-						{{ $t('ready.checkApiUrl') }}
-					</p>
-				</Message>
-				<ApiConfig
-					:configure-open="true"
-					@foundApi="baseStore.loadApp()"
-				/>
-			</template>
+				<p>
+					{{ $t('ready.checkApiUrl') }}
+				</p>
+			</Message>
 		</NoAuthWrapper>
 	</section>
 	<CustomTransition name="fade">
 		<section
 			v-if="baseStore.loading"
-			class="vikunja-loading"
+			class="flow-loading"
 		>
 			<img
 				:src="logoImage"
-				alt="Vikunja"
+				alt="Flow"
 				class="logo"
 			>
 			<p>
@@ -71,12 +62,9 @@
 
 <script lang="ts" setup>
 import logoImage from '@/assets/relow-flow.png'
-import ApiConfig from '@/components/misc/ApiConfig.vue'
 import Message from '@/components/misc/Message.vue'
 import CustomTransition from '@/components/misc/CustomTransition.vue'
 import NoAuthWrapper from '@/components/misc/NoAuthWrapper.vue'
-
-import {ERROR_NO_API_URL} from '@/helpers/checkAndSetApiUrl'
 
 import {useOnline} from '@/composables/useOnline'
 import {ERROR_RATE_LIMITED, useBaseStore} from '@/stores/base'
@@ -88,7 +76,7 @@ const baseStore = useBaseStore()
 <style lang="scss" scoped>
 // stylelint-disable no-invalid-position-declaration
 
-.vikunja-loading {
+.flow-loading {
 	display: flex;
 	justify-content: center;
 	align-items: center;

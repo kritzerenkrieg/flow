@@ -23,47 +23,6 @@
 				{{ $t('user.auth.login') }}
 			</XButton>
 		</template>
-		<template v-else-if="showCustomServerInput">
-			<p class="mbe-4">
-				{{ $t('user.auth.desktopCustomServerDescription') }}
-			</p>
-			<ApiConfig
-				:configure-open="true"
-				@foundApi="loginWithServer"
-			/>
-			<div class="has-text-centered mbs-2">
-				<a
-					role="button"
-					@click="showCustomServerInput = false"
-				>
-					{{ $t('misc.cancel') }}
-				</a>
-			</div>
-		</template>
-		<template v-else>
-			<XButton
-				:loading="waitingForAuth"
-				class="is-fullwidth mbe-2"
-				@click="loginWithServer('https://app.vikunja.cloud')"
-			>
-				Vikunja Cloud
-			</XButton>
-			<XButton
-				:loading="waitingForAuth"
-				variant="secondary"
-				class="is-fullwidth mbe-2"
-				@click="loginWithServer('https://try.vikunja.io')"
-			>
-				{{ $t('user.auth.desktopTryDemo') }}
-			</XButton>
-			<XButton
-				variant="secondary"
-				class="is-fullwidth"
-				@click="showCustomServerInput = true"
-			>
-				{{ $t('user.auth.desktopCustomServer') }}
-			</XButton>
-		</template>
 	</div>
 </template>
 
@@ -72,7 +31,6 @@ import {ref} from 'vue'
 import {useI18n} from 'vue-i18n'
 
 import Message from '@/components/misc/Message.vue'
-import ApiConfig from '@/components/misc/ApiConfig.vue'
 
 import {getErrorText} from '@/message'
 import {startDesktopOAuthLogin, listenForDesktopOAuthTokens, listenForDesktopOAuthError} from '@/helpers/desktopAuth'
@@ -89,7 +47,6 @@ const waitingForAuth = ref(false)
 const errorMessage = ref('')
 const storedServerUrl = localStorage.getItem('API_URL')
 const hasStoredServer = storedServerUrl !== null
-const showCustomServerInput = ref(false)
 
 listenForDesktopOAuthTokens(async (tokens) => {
 	waitingForAuth.value = false

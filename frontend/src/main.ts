@@ -7,7 +7,6 @@ import router from './router'
 import App from './App.vue'
 import {error, success} from './message'
 import {configureApiClient} from './client/http'
-import {normalizeApiUrl} from './helpers/apiUrl'
 import {queryClient} from './client/queryClient'
 
 // Notifications
@@ -29,11 +28,8 @@ declare global {
 	}
 }
 
-const apiUrlFromStorage = localStorage.getItem('API_URL')
-window.API_URL = normalizeApiUrl(apiUrlFromStorage ?? window.API_URL)
-if (apiUrlFromStorage !== null && apiUrlFromStorage !== window.API_URL) {
-	localStorage.setItem('API_URL', window.API_URL)
-}
+// The frontend always talks to the installation it is served from.
+// window.API_URL ('' = same origin) is set by index.html.
 configureApiClient()
 
 // directives
