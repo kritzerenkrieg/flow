@@ -602,7 +602,7 @@ func TestConversationalMail(t *testing.T) {
 
 		// Should HAVE logo in formal emails
 		assert.Contains(t, mailopts.HTMLMessage, "logo.png")
-		assert.Contains(t, mailopts.HTMLMessage, "Vikunja")
+		assert.Contains(t, mailopts.HTMLMessage, "Relow Flow")
 		assert.Contains(t, mailopts.EmbedFS, "logo.png")
 
 		// Should have formal button styling

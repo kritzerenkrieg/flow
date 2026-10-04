@@ -34,9 +34,10 @@ type EmailConfirmNotification struct {
 // ToMail returns the mail notification for EmailConfirmNotification
 func (n *EmailConfirmNotification) ToMail(lang string) *notifications.Mail {
 
-	subject := i18n.T(lang, "notifications.email_confirm.subject", n.User.GetName())
+	// subject is a fixed title ("Relow Flow Registration") and takes no format args
+	subject := i18n.T(lang, "notifications.email_confirm.subject")
 	if n.IsNew {
-		subject = i18n.T(lang, "notifications.email_confirm.subject_new", n.User.GetName())
+		subject = i18n.T(lang, "notifications.email_confirm.subject_new")
 	}
 
 	nn := notifications.NewMail().
