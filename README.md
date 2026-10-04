@@ -6,7 +6,7 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/vikunja/vikunja.svg)](https://hub.docker.com/r/vikunja/vikunja/)
 [![OpenAPI Docs](https://img.shields.io/badge/swagger-docs-brightgreen.svg)](https://try.vikunja.io/api/v2/docs)
 
-# Vikunja
+# Flow, a fork of Vikunja
 
 > The task manager you actually own. 
 
@@ -20,13 +20,15 @@ If you or your company needs admin panel, audit logs or time tracking, check out
 
 ## Table of contents
 
-- [Security Reports](#security-reports)
-- [Features](#features)
-- [Docs](#docs)
-	- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-- [License](#license)
-	- [Unsplash Images](#unsplash-images)
+- [Flow, a fork of Vikunja](#flow-a-fork-of-vikunja)
+	- [Table of contents](#table-of-contents)
+	- [Security Reports](#security-reports)
+	- [Features](#features)
+	- [Docs](#docs)
+		- [Roadmap](#roadmap)
+	- [Contributing](#contributing)
+	- [License](#license)
+		- [Unsplash Images](#unsplash-images)
 
 ## Security Reports
 
