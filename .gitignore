@@ -55,3 +55,8 @@ PLAN.md
 plans/
 /.crush/
 /.playwright-mcp
+
+# Local build/deploy artifacts
+/build/vikunja
+/flow-login.jpg
+build/vikunja.bak*
