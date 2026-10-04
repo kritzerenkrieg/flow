@@ -35,7 +35,7 @@ describe('UnsplashBackgroundThumbnail', () => {
 
 		const link = wrapper.find('.unsplash-thumbnail__info')
 
-		expect(link.attributes('href')).toBe('https://unsplash.com/@a%20b?utm_source=vikunja&utm_medium=referral')
+		expect(link.attributes('href')).toBe('https://unsplash.com/@a%20b?utm_source=flow&utm_medium=referral')
 		expect(link.text()).toBe('A B')
 		expect(wrapper.find('.unsplash-thumbnail__button').attributes('aria-label')).toContain('A B')
 	})

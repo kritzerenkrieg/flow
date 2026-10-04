@@ -76,7 +76,7 @@
 					</div>
 					<img
 						:src="logoImage"
-						alt="Vikunja"
+						alt="Flow"
 						class="logo"
 					>
 				</div>

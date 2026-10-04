@@ -128,7 +128,6 @@
 
 		<PoweredByLink
 			class="mbs-auto"
-			utm-medium="navigation"
 		/>
 
 		<div
@@ -187,7 +186,7 @@ const savedFilterProjects = computed(() => projectList.savedFilterProjects)
 	display: flex;
 	flex-direction: column;
 	background: var(--site-background);
-	color: $vikunja-nav-color;
+	color: $flow-nav-color;
 	padding: 1rem 0;
 	transition: transform $transition-duration ease-in;
 	position: fixed;
@@ -238,7 +237,7 @@ const savedFilterProjects = computed(() => projectList.savedFilterProjects)
 .top-menu .menu-list {
 	li {
 		font-weight: 600;
-		font-family: $vikunja-font;
+		font-family: $flow-font;
 	}
 
 	.list-menu-link,

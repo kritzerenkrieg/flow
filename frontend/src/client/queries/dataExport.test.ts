@@ -34,7 +34,7 @@ it('saves the downloaded export under the zip file name', async () => {
 		body: {password: 'password'},
 		parseAs: 'blob',
 	})
-	expect(downloadBlob).toHaveBeenCalledWith('blob:export', 'vikunja-export.zip')
+	expect(downloadBlob).toHaveBeenCalledWith('blob:export', 'flow-export.zip')
 })
 
 it('rejects a download response that is not a file', async () => {

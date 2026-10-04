@@ -183,15 +183,6 @@
 	>
 		<div class="field-group">
 			<FormField
-				:label="$t('user.settings.appearance.title')"
-				layout="two-col"
-			>
-				<FormSelect
-					v-model="settings.frontend_settings.color_schema"
-					:options="colorSchemeOptions"
-				/>
-			</FormField>
-			<FormField
 				:label="$t('user.settings.quickAddMagic.title')"
 				layout="two-col"
 			>
@@ -401,12 +392,6 @@ const dateDisplayOptions = computed(() => [
 const timeFormatOptions = computed(() => [
 	{value: TIME_FORMAT.HOURS_12, label: t('user.settings.general.timeFormatOptions.12h')},
 	{value: TIME_FORMAT.HOURS_24, label: t('user.settings.general.timeFormatOptions.24h')},
-])
-
-const colorSchemeOptions = computed(() => [
-	{value: 'light', label: t('user.settings.appearance.colorScheme.light')},
-	{value: 'auto', label: t('user.settings.appearance.colorScheme.system')},
-	{value: 'dark', label: t('user.settings.appearance.colorScheme.dark')},
 ])
 
 const quickAddMagicModeOptions = computed(() =>

@@ -101,19 +101,6 @@
 							<dd><code>{{ data.license?.instance_id }}</code></dd>
 						</template>
 					</dl>
-					<p class="admin-overview__card-action">
-						<a
-							href="https://console.vikunja.io"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							{{ $t('admin.overview.licenseManage') }}
-							<Icon
-								icon="arrow-up-right-from-square"
-								class="admin-overview__external-icon"
-							/>
-						</a>
-					</p>
 				</div>
 			</div>
 		</div>
@@ -124,7 +111,6 @@
 import {computed} from 'vue'
 import dayjs from 'dayjs'
 import Card from '@/components/misc/Card.vue'
-import Icon from '@/components/misc/Icon'
 import TimeDisplay from '@/components/misc/TimeDisplay.vue'
 import {useQuery} from '@tanstack/vue-query'
 import {adminOverviewQuery} from '@/client/queries/admin'
@@ -229,10 +215,6 @@ const totalShares = computed<number>(() => {
 	margin-inline-start: 0.25rem;
 }
 
-.admin-overview__card-action {
-	margin-block-start: 1rem;
-}
-
 .admin-overview__shares-breakdown {
 	position: absolute;
 	inset-block-end: 1.25rem;
@@ -241,11 +223,5 @@ const totalShares = computed<number>(() => {
 	font-size: 0.75rem;
 	color: var(--grey-500);
 	text-align: end;
-}
-
-.admin-overview__external-icon {
-	margin-inline-start: 0.35em;
-	font-size: 0.85em;
-	opacity: 0.7;
 }
 </style>

@@ -18,7 +18,7 @@ afterEach(() => {
 })
 
 describe('invitation bootstrap', () => {
-	it.each(['/register', '/vikunja/register'])('removes the secret before returning control at %s', async path => {
+	it.each(['/register', '/flow/register'])('removes the secret before returning control at %s', async path => {
 		window.history.replaceState({position: 2}, '', `${path}?lang=en#invite-link=secret%2Btoken`)
 		const invitation = await import('./inviteLink')
 		expect(window.location.pathname + window.location.search + window.location.hash).toBe(`${path}?lang=en`)

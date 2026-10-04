@@ -57,10 +57,10 @@ describe('sentry image load errors', () => {
 		// FRONTEND-OSS-2KK: the generated default avatar, handed to the <img> as a data url
 		['data', 'data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIi8+'],
 		// FRONTEND-OSS-26S: an avatar or attachment preview blob url
-		['blob', 'blob:https://app.vikunja.cloud/47479b89-bed9-427b-a859-a447f21d5034'],
+		['blob', 'blob:https://app.flow.cloud/47479b89-bed9-427b-a859-a447f21d5034'],
 		// FRONTEND-OSS-2FZ: a mail client's inline attachment
 		['cid', 'cid:part1.abcdef@example.com'],
-		['filesystem', 'filesystem:https://app.vikunja.cloud/temporary/avatar.png'],
+		['filesystem', 'filesystem:https://app.flow.cloud/temporary/avatar.png'],
 	])('skips a %s src, whose bytes never went over the network', (_, src) => {
 		failImage(src)
 
@@ -99,7 +99,7 @@ describe('sentry css load errors', () => {
 	})
 
 	it('skips a blob href, whose bytes never went over the network', () => {
-		failStylesheet('blob:https://app.vikunja.cloud/47479b89-bed9-427b-a859-a447f21d5034')
+		failStylesheet('blob:https://app.flow.cloud/47479b89-bed9-427b-a859-a447f21d5034')
 
 		expect(captureMessage).not.toHaveBeenCalled()
 	})

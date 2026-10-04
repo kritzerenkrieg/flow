@@ -508,7 +508,7 @@ $modal-width: 1024px;
 }
 
 .bottom-sheet__title {
-	font-family: $vikunja-font;
+	font-family: $flow-font;
 	font-weight: 700;
 	font-size: 1.15rem;
 	color: var(--grey-900);

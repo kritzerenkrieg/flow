@@ -1,36 +1,18 @@
 import {computed, watch, readonly} from 'vue'
-import {createSharedComposable, usePreferredColorScheme, tryOnMounted} from '@vueuse/core'
-import type {BasicColorSchema} from '@vueuse/core'
+import {createSharedComposable, tryOnMounted} from '@vueuse/core'
 import {useAuthStore} from '@/stores/auth'
-
-const DEFAULT_COLOR_SCHEME_SETTING: BasicColorSchema = 'light'
 
 const CLASS_DARK = 'dark'
 const CLASS_LIGHT = 'light'
 
-// This is built upon the vueuse useDark
-// Main differences:
-// - usePreferredColorScheme
-// - doesn't allow setting via the `isDark` ref.
-// - instead the store is exposed
-// - value is synced via `createSharedComposable`
-// https://github.com/vueuse/vueuse/blob/main/packages/core/useDark/index.ts 
+// White-label: the UI is always bright.
+// Dark mode and the system color scheme preference are disabled — the stored
+// color_schema setting and prefers-color-scheme are intentionally ignored.
 export const useColorScheme = createSharedComposable(() => {
 	const authStore = useAuthStore()
 	const store = computed(() => authStore.settings.frontend_settings.color_schema)
 
-	const preferredColorScheme = usePreferredColorScheme()
-
-	const isDark = computed<boolean>(() => {
-		if (store.value !== 'auto') {
-			return store.value === 'dark'
-		}
-
-		const autoColorScheme = preferredColorScheme.value === 'no-preference' 
-			? DEFAULT_COLOR_SCHEME_SETTING
-			: preferredColorScheme.value
-		return autoColorScheme === 'dark'
-	})
+	const isDark = computed<boolean>(() => false)
 
 	function onChanged(v: boolean) {
 		const el = window?.document.querySelector('html')

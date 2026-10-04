@@ -33,8 +33,8 @@ test.describe('Account deletion', () => {
 		}, false)
 
 		await page.goto(`/user/settings/deletion?accountDeletionConfirm=${deletionToken}`)
-		// Scheduled-state copy: "We will delete your Vikunja account at ..."
-		await expect(page.locator('.card')).toContainText(/we will delete your Vikunja account/i)
+		// Scheduled-state copy: "We will delete your Flow account at ..."
+		await expect(page.locator('.card')).toContainText(/we will delete your Flow account/i)
 		await expect(page).not.toHaveURL(/accountDeletionConfirm/)
 
 		await page.locator('#currentPasswordAccountDelete').fill(TEST_PASSWORD)

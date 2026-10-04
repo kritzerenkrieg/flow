@@ -13,12 +13,12 @@ describe('htmlHasFormatting', () => {
 	})
 
 	it.each([
-		['a link', '<span>see <a href="https://vikunja.io">docs</a></span>'],
+		['a link', '<span>see <a href="https://flow.io">docs</a></span>'],
 		['bold text', 'a <strong>b</strong>'],
 		['a heading', '<h2>title</h2>'],
 		['a list', '<ul><li>a</li></ul>'],
 		['a table', '<table><tr><td>a</td></tr></table>'],
-		['an image', '<img src="https://vikunja.io/logo.png">'],
+		['an image', '<img src="https://flow.io/logo.png">'],
 		['code', '<code>a - b</code>'],
 	])('reports formatting for %s', (_name, html) => {
 		expect(htmlHasFormatting(html)).toBe(true)

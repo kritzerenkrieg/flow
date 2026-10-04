@@ -3,12 +3,12 @@
 /// <reference types="@histoire/plugin-vue/components" />
 
 interface ImportMetaEnv {
-	readonly VIKUNJA_API_URL?: string
-	readonly VIKUNJA_HTTP_PORT?: number
-	readonly VIKUNJA_HTTPS_PORT?: number
+	readonly FLOW_API_URL?: string
+	readonly FLOW_HTTP_PORT?: number
+	readonly FLOW_HTTPS_PORT?: number
 
-	readonly VIKUNJA_SENTRY_ENABLED?: boolean
-	readonly VIKUNJA_SENTRY_DSN?: string
+	readonly FLOW_SENTRY_ENABLED?: boolean
+	readonly FLOW_SENTRY_DSN?: string
 
 	readonly SENTRY_AUTH_TOKEN?: string
 	readonly SENTRY_ORG?: string

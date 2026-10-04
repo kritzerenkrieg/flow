@@ -92,7 +92,7 @@ describe('pasting markdown', () => {
 // throw the formatting away, see #4019.
 describe('pasting html alongside markdown characters', () => {
 	it.each([
-		['a link', '<meta charset="utf-8"><p>see <a href="https://vikunja.io">the docs</a> - now</p>'],
+		['a link', '<meta charset="utf-8"><p>see <a href="https://flow.io">the docs</a> - now</p>'],
 		['bold text', '<b>bold</b> text - here'],
 		['a list', '<ul><li>a - b</li></ul>'],
 	])('leaves %s to the clipboard parser', (_name, html) => {

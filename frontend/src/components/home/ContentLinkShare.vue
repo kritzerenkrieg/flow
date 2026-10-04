@@ -49,7 +49,7 @@
 				:has-content="false"
 			>
 				<RouterView />
-				<PoweredByLink utm-medium="link_share" />
+				<PoweredByLink />
 			</Card>
 		</div>
 	</div>

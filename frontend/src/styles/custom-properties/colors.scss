@@ -1,5 +1,5 @@
-// Vikunja colors as CSS custom properties.
-// Defines the full color token system (Bulma scheme variables, Vikunja --grey-* scale,
+// Flow colors as CSS custom properties.
+// Defines the full color token system (Bulma scheme variables, Flow --grey-* scale,
 // semantic colors like --primary/--success/--danger) and their dark-mode overrides.
 // See frontend/src/styles/README.md for the token conventions.
 
@@ -8,7 +8,7 @@
   // Added (from bulma-css-variables/css/bulma.css) to fix issues with undefined variables
   // This section should be removed once bulma/sass scoping issues are fixed
   // see https://kolaente.dev/vikunja/frontend/issues/1064
-  // Variables overridden in Vikunja specific rules below are commented out
+  // Variables overridden in Flow specific rules below are commented out
   //--scheme-main: white;
   --scheme-main-bis: #fafafa;
   --scheme-main-ter: whitesmoke;
@@ -176,7 +176,7 @@
   // END core Bulma color variables
 
 
-  // Vikunja specific variables
+  // Flow specific variables
   --grey-50: hsl(210, 20%, 98%);
   --grey-100-hsl: 220, 14.3%, 95.9%;
   --grey-100: hsl(var(--grey-100-hsl));

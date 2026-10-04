@@ -1,24 +1,8 @@
 <template>
-	<BaseButton
-		class="menu-bottom-link"
-		:href="computedUrl"
-		target="_blank"
-	>
+	<p class="menu-bottom-link">
 		{{ $t('misc.poweredBy') }}
-	</BaseButton>
+	</p>
 </template>
-
-<script setup lang="ts">
-import {computed} from 'vue'
-import BaseButton from '@/components/base/BaseButton.vue'
-import {POWERED_BY as poweredByUrl} from '@/urls'
-
-const props = defineProps<{
-	utmMedium: string;
-}>()
-
-const computedUrl = computed(() => `${poweredByUrl}&utm_medium=${props.utmMedium}`)
-</script>
 
 <style lang="scss">
 .menu-bottom-link {

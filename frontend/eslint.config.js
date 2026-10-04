@@ -21,14 +21,14 @@ export default [
 	},
 	{
 		plugins: {
-			vikunja: {
+			flow: {
 				rules: {
 					'icon-button-accessible-name': iconButtonAccessibleName,
 				},
 			},
 		},
 		rules: {
-			'vikunja/icon-button-accessible-name': 'error',
+			'flow/icon-button-accessible-name': 'error',
 			'no-restricted-imports': ['error', {
 				paths: [
 					{

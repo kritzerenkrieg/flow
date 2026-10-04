@@ -146,7 +146,7 @@ const {connect} = useWebSocket()
 connect()
 
 // Listen for task creation from the quick-entry window
-const taskUpdateChannel = new BroadcastChannel('vikunja-task-updates')
+const taskUpdateChannel = new BroadcastChannel('flow-task-updates')
 taskUpdateChannel.onmessage = (event) => {
 	if (event.data?.type === 'task-created-open' && event.data?.taskId) {
 		router.push({name: 'task.detail', params: {id: event.data.taskId}})

@@ -226,7 +226,7 @@ function formatPreset(hours: number) {
 	border: 0;
 	background: transparent;
 	text-align: center;
-	font-family: $vikunja-font;
+	font-family: $flow-font;
 	font-weight: 700;
 	font-size: 1.35rem;
 	line-height: 1;
@@ -242,7 +242,7 @@ function formatPreset(hours: number) {
 }
 
 .time-control__colon {
-	font-family: $vikunja-font;
+	font-family: $flow-font;
 	font-weight: 700;
 	font-size: 1.35rem;
 	color: var(--grey-400);

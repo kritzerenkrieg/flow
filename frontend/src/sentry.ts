@@ -9,7 +9,7 @@ export default async function setupSentry(app: App, router: Router) {
 	Sentry.init({
 		app,
 		dsn: window.SENTRY_DSN ?? '',
-		release: `vikunja-frontend@${VERSION}`,
+		release: `flow-frontend@${VERSION}`,
 		// Props of login and password forms hold plaintext credentials.
 		attachProps: false,
 

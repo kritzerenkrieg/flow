@@ -23,7 +23,7 @@ const logo = computed(() => CustomLogo.value || logoImage)
 <template>
 	<img
 		:src="logo"
-		alt="Vikunja"
+		alt="Flow"
 		class="logo"
 	>
 </template>

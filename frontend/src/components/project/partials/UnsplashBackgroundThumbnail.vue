@@ -18,7 +18,7 @@
 
 		<BaseButton
 			v-if="author"
-			:href="`https://unsplash.com/@${encodeURIComponent(author.author)}?utm_source=vikunja&utm_medium=referral`"
+			:href="`https://unsplash.com/@${encodeURIComponent(author.author)}?utm_source=flow&utm_medium=referral`"
 			class="unsplash-thumbnail__info"
 		>
 			{{ author.author_name }}

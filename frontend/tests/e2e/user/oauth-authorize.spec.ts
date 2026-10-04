@@ -89,7 +89,7 @@ test.describe('OAuth 2.0 Authorization Flow', () => {
 	})
 
 	// The primary #2654 scenario: the native client opened a different default browser that is
-	// already signed in to Vikunja. Opening the copied /login#redirect=<oauth.authorize> URL must
+	// already signed in to Flow. Opening the copied /login#redirect=<oauth.authorize> URL must
 	// run the OAuth flow with the existing session instead of short-circuiting to home.
 	test('Already-authenticated browser opening the copied login redirect runs the authorize flow', async ({authenticatedPage, apiContext, currentUser}) => {
 		const page = authenticatedPage

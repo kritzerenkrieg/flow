@@ -38,5 +38,5 @@ export default defineConfig({
 		},
 	],
 	// webServer configuration removed - we manually start services in CI
-	// For local development, run `pnpm preview` and `pnpm preview:vikunja` separately
+	// For local development, run `pnpm preview` and `pnpm preview:flow` separately
 })

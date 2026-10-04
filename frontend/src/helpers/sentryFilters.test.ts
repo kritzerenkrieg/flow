@@ -81,12 +81,12 @@ describe('shouldDropEvent', () => {
 
 describe('shouldDropEvent with chunk load errors', () => {
 	const messages = [
-		'Failed to fetch dynamically imported module: https://try.vikunja.io/assets/ProjectList-abc123.js',
-		'error loading dynamically imported module: https://try.vikunja.io/assets/ProjectList-abc123.js',
+		'Failed to fetch dynamically imported module: https://try.flow.io/assets/ProjectList-abc123.js',
+		'error loading dynamically imported module: https://try.flow.io/assets/ProjectList-abc123.js',
 		'Importing a module script failed.',
 		'Unable to preload CSS for /assets/ProjectList-abc123.css',
 		'\'text/html\' is not a valid JavaScript MIME type.',
-		'Loading module from “https://try.vikunja.io/assets/ProjectList-abc123.js” was blocked because of a disallowed MIME type (“text/html”).',
+		'Loading module from “https://try.flow.io/assets/ProjectList-abc123.js” was blocked because of a disallowed MIME type (“text/html”).',
 		'Failed to load module script: Expected a JavaScript module script but the server responded with a MIME type of "text/html".',
 	]
 
@@ -165,7 +165,7 @@ describe('shouldDropEvent with third party injections', () => {
 			exception: {
 				values: [{
 					value: 'boom',
-					stacktrace: {frames: [{filename: 'https://try.vikunja.io/assets/index.js'}, {filename}]},
+					stacktrace: {frames: [{filename: 'https://try.flow.io/assets/index.js'}, {filename}]},
 				}],
 			},
 		})).toBe(true)
@@ -176,7 +176,7 @@ describe('shouldDropEvent with third party injections', () => {
 			exception: {
 				values: [{
 					value: 'boom',
-					stacktrace: {frames: [{filename: 'chrome-extension://abc/content.js'}, {filename: 'https://try.vikunja.io/assets/index.js'}]},
+					stacktrace: {frames: [{filename: 'chrome-extension://abc/content.js'}, {filename: 'https://try.flow.io/assets/index.js'}]},
 				}],
 			},
 		})).toBe(false)
@@ -187,7 +187,7 @@ describe('shouldDropEvent with third party injections', () => {
 			exception: {
 				values: [{
 					value: 'boom',
-					stacktrace: {frames: [{filename: 'https://try.vikunja.io/assets/index.js'}]},
+					stacktrace: {frames: [{filename: 'https://try.flow.io/assets/index.js'}]},
 				}],
 			},
 		})).toBe(false)
@@ -291,7 +291,7 @@ describe('generated transport errors', () => {
 
 describe('redactSensitiveParams', () => {
 	it.each([
-		['https://vikunja.example/?userPasswordReset=abc123', 'https://vikunja.example/?userPasswordReset=[Filtered]'],
+		['https://flow.example/?userPasswordReset=abc123', 'https://flow.example/?userPasswordReset=[Filtered]'],
 		['/login?foo=1&accountDeletionConfirm=abc123&bar=2', '/login?foo=1&accountDeletionConfirm=[Filtered]&bar=2'],
 		['/?userEmailConfirm=abc123#hash', '/?userEmailConfirm=[Filtered]#hash'],
 		['userPasswordReset=abc123', 'userPasswordReset=[Filtered]'],
@@ -303,17 +303,17 @@ describe('redactSensitiveParams', () => {
 
 	it('redacts nested strings in an event', () => {
 		const event = {
-			request: {url: 'https://vikunja.example/?userPasswordReset=abc123'},
+			request: {url: 'https://flow.example/?userPasswordReset=abc123'},
 			breadcrumbs: [{category: 'navigation', data: {from: '/', to: '/?accountDeletionConfirm=abc123'}}],
-			urls: ['https://vikunja.example/?userEmailConfirm=abc123'],
+			urls: ['https://flow.example/?userEmailConfirm=abc123'],
 			level: 'error',
 			count: 1,
 		}
 
 		expect(redactSensitiveParams(event)).toEqual({
-			request: {url: 'https://vikunja.example/?userPasswordReset=[Filtered]'},
+			request: {url: 'https://flow.example/?userPasswordReset=[Filtered]'},
 			breadcrumbs: [{category: 'navigation', data: {from: '/', to: '/?accountDeletionConfirm=[Filtered]'}}],
-			urls: ['https://vikunja.example/?userEmailConfirm=[Filtered]'],
+			urls: ['https://flow.example/?userEmailConfirm=[Filtered]'],
 			level: 'error',
 			count: 1,
 		})
@@ -321,21 +321,21 @@ describe('redactSensitiveParams', () => {
 })
 
 describe('isReportableResourceUrl', () => {
-	const page = 'https://app.vikunja.cloud/tasks/395132'
+	const page = 'https://app.flow.cloud/tasks/395132'
 
 	it.each([
-		'https://app.vikunja.cloud/assets/logo.png',
+		'https://app.flow.cloud/assets/logo.png',
 		'http://127.0.0.1:8080/assets/logo.png',
-		'https://app.vikunja.cloud/tasks/395132/cover.png',
+		'https://app.flow.cloud/tasks/395132/cover.png',
 	])('reports %s, which the browser fetched over the network', url => {
 		expect(isReportableResourceUrl(url, page)).toBe(true)
 	})
 
 	it.each([
 		'data:image/svg+xml;base64,PHN2ZyAvPg==',
-		'blob:https://app.vikunja.cloud/47479b89-bed9-427b-a859-a447f21d5034',
+		'blob:https://app.flow.cloud/47479b89-bed9-427b-a859-a447f21d5034',
 		'cid:part1.abcdef@example.com',
-		'filesystem:https://app.vikunja.cloud/temporary/avatar.png',
+		'filesystem:https://app.flow.cloud/temporary/avatar.png',
 		'about:blank',
 	])('skips %s, whose bytes never went over the network', url => {
 		expect(isReportableResourceUrl(url, page)).toBe(false)

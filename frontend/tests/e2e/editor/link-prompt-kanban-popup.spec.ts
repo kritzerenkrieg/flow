@@ -57,10 +57,10 @@ test.describe('Editor link prompt inside the Kanban task popup', () => {
 
 		const urlInput = dialog.locator('input.input[placeholder="URL"]')
 		await expect(urlInput).toBeVisible()
-		await urlInput.fill('https://vikunja.io')
+		await urlInput.fill('https://example.com')
 		await urlInput.press('Enter')
 
-		const link = editor.locator('a[href="https://vikunja.io"]')
+		const link = editor.locator('a[href="https://example.com"]')
 		await expect(link).toBeVisible()
 		await expect(link).toHaveText('link me')
 	})

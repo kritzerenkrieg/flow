@@ -234,7 +234,7 @@ function clearAll() { clearMutation.mutate() }
 		}
 
 		.head {
-			font-family: $vikunja-font;
+			font-family: $flow-font;
 			font-size: 1rem;
 			padding: .5rem;
 			display: flex;

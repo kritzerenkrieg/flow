@@ -43,38 +43,38 @@ describe('parseTaskIdFromUrl', () => {
 	})
 
 	it('respects a non-root base path', () => {
-		vi.stubEnv('BASE_URL', '/vikunja/')
-		expect(parseTaskIdFromUrl('http://localhost:3000/vikunja/tasks/7')).toBe(7)
-		expect(parseTaskIdFromUrl('/vikunja/tasks/7')).toBe(7)
+		vi.stubEnv('BASE_URL', '/flow/')
+		expect(parseTaskIdFromUrl('http://localhost:3000/flow/tasks/7')).toBe(7)
+		expect(parseTaskIdFromUrl('/flow/tasks/7')).toBe(7)
 		expect(parseTaskIdFromUrl('http://localhost:3000/tasks/7')).toBeNull()
 	})
 
 	it('accepts urls from the configured frontend url', () => {
-		useConfigStore().frontend_url = 'https://vikunja.example.com/'
+		useConfigStore().frontend_url = 'https://flow.example.com/'
 
-		expect(parseTaskIdFromUrl('https://vikunja.example.com/tasks/9')).toBe(9)
+		expect(parseTaskIdFromUrl('https://flow.example.com/tasks/9')).toBe(9)
 		expect(parseTaskIdFromUrl('http://localhost:3000/tasks/9')).toBe(9)
 		expect(parseTaskIdFromUrl('https://other.example.com/tasks/9')).toBeNull()
-		expect(parseTaskIdFromUrl('https://vikunja.example.com.evil.com/tasks/9')).toBeNull()
-		expect(parseTaskIdFromUrl('https://evil.vikunja.example.com/tasks/9')).toBeNull()
+		expect(parseTaskIdFromUrl('https://flow.example.com.evil.com/tasks/9')).toBeNull()
+		expect(parseTaskIdFromUrl('https://evil.flow.example.com/tasks/9')).toBeNull()
 	})
 
 	it('respects a path in the configured frontend url', () => {
-		useConfigStore().frontend_url = 'https://example.com/vikunja/'
+		useConfigStore().frontend_url = 'https://example.com/flow/'
 
-		expect(parseTaskIdFromUrl('https://example.com/vikunja/tasks/9')).toBe(9)
+		expect(parseTaskIdFromUrl('https://example.com/flow/tasks/9')).toBe(9)
 		expect(parseTaskIdFromUrl('https://example.com/tasks/9')).toBeNull()
 	})
 
 	it('only accepts the current origin when no frontend url is configured', () => {
 		expect(parseTaskIdFromUrl('http://localhost:3000/tasks/9')).toBe(9)
-		expect(parseTaskIdFromUrl('https://vikunja.example.com/tasks/9')).toBeNull()
+		expect(parseTaskIdFromUrl('https://flow.example.com/tasks/9')).toBeNull()
 	})
 
 	it('falls back to the current origin when the configured frontend url is malformed', () => {
 		useConfigStore().frontend_url = 'not a url'
 
 		expect(parseTaskIdFromUrl('http://localhost:3000/tasks/9')).toBe(9)
-		expect(parseTaskIdFromUrl('https://vikunja.example.com/tasks/9')).toBeNull()
+		expect(parseTaskIdFromUrl('https://flow.example.com/tasks/9')).toBeNull()
 	})
 })

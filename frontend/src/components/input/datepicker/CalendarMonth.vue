@@ -347,7 +347,7 @@ function onKeydown(event: KeyboardEvent) {
 	background: transparent;
 	padding: .125rem .25rem;
 	border-radius: $radius;
-	font-family: $vikunja-font;
+	font-family: $flow-font;
 	font-weight: 700;
 	font-size: 1.05rem;
 	color: var(--grey-900);

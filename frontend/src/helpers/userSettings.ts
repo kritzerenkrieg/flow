@@ -71,7 +71,7 @@ export function defaultFrontendSettings(): FrontendSettings {
 	return {
 		play_sound_when_done: true,
 		quick_add_magic_mode: PrefixMode.Default,
-		color_schema: 'auto',
+		color_schema: 'light',
 		allow_icon_changes: true,
 		filter_id_used_on_overview: null,
 		default_view: DEFAULT_PROJECT_VIEW_SETTINGS.FIRST,

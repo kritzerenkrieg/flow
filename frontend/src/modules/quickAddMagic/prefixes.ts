@@ -1,6 +1,6 @@
 import type {Prefixes} from './types'
 
-const VIKUNJA_PREFIXES: Prefixes = {
+const DEFAULT_PREFIXES: Prefixes = {
 	label: '*',
 	project: '+',
 	priority: '!',
@@ -22,6 +22,6 @@ export enum PrefixMode {
 
 export const PREFIXES = {
 	[PrefixMode.Disabled]: undefined,
-	[PrefixMode.Default]: VIKUNJA_PREFIXES,
+	[PrefixMode.Default]: DEFAULT_PREFIXES,
 	[PrefixMode.Todoist]: TODOIST_PREFIXES,
 }

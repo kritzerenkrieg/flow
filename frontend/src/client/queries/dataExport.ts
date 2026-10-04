@@ -35,7 +35,7 @@ export function downloadExportMutationOptions() {
 			const {data} = await userExportDownload({body: {password}, parseAs: 'blob'})
 			return expectBlob(data, 'Export')
 		},
-		onSuccess: blob => downloadBlob(URL.createObjectURL(blob), 'vikunja-export.zip'),
+		onSuccess: blob => downloadBlob(URL.createObjectURL(blob), 'flow-export.zip'),
 	})
 }
 
